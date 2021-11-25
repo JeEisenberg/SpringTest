@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<bean id="userDao" class="com.gavin.Dao.UserDaoImp"/>
+
+<!--    定义一个bean-->
+    <bean id="myAspect"  class="com.gavin.myAspect.MyAspect"/>
+<!--    将bean转为切面bean-->
+<!--    aop配置-->
+    <aop:config>
+<!--        配置切面-->
+<aop:aspect id="aspect" ref="myAspect">
+<!--    定义切入点-->
+    <aop:pointcut  expression="execution(* com.gavin.Dao.*.*(..))" id="myPointCut"/>
+<!--    在切入点之前运行的代码,一般用于检查验证之类的-->
+    <aop:before method="myBefore" pointcut-ref="myPointCut"/>
+<!--    运行时要插入的功能代码-->
+<aop:after-returning method="myAfterReturning"  pointcut-ref="myPointCut"  returning="joinPoint"/>
+<!-- 环绕通知-->
+   <aop:around method="myAround" pointcut-ref="myPointCut" />
+<!--异常通知-->
+    <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>
+    <!--    最终通知-->
+<aop:after method="myAfter" pointcut-ref="myPointCut"/>
+</aop:aspect>
+    </aop:config>
+</beans>

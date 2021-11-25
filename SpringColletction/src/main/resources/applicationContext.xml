@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+
+                 http://www.springframework.org/schema/beans/spring-beans.xsd
+                 http://www.springframework.org/schema/util
+                   http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list id="outerBookList">
+        <bean id="java" class="com.gavin.pojo.Book" p:b_name="java" p:b_id="1001"/>
+        <bean id="python" class="com.gavin.pojo.Book" p:b_name="python" p:b_id="1002"/>
+    </util:list>
+
+
+    <bean id="java" class="com.gavin.pojo.Book" p:b_id="1001" p:b_name="java"></bean>
+    <bean id="python" class="com.gavin.pojo.Book" p:b_id="1002" p:b_name="python"></bean>
+
+
+    <bean class="com.gavin.pojo.Student" id="student">
+        <property name="name" value="张三"/>
+        <!-- <property name="book" ref="java"/>-->
+        <property name="book">
+            <ref bean="java"></ref>
+        </property>
+        <!--        array-->
+        <property name="bookArray">
+            <array>
+                <bean id="java" class="com.gavin.pojo.Book" p:b_name="java" p:b_id="1001"/>
+                <bean id="python" class="com.gavin.pojo.Book" p:b_name="python" p:b_id="1002"/>
+            </array>
+        </property>
+        <!--        list-->
+        <property name="bookList" ref="outerBookList"/>
+
+
+        <!--        set -->
+        <property name="bookSet">
+            <set>
+                <bean id="java" class="com.gavin.pojo.Book" p:b_name="java" p:b_id="1001"/>
+                <bean id="python" class="com.gavin.pojo.Book" p:b_name="python" p:b_id="1002"/>
+            </set>
+        </property>
+
+        <property name="bookMap">
+            <map>
+                <entry key-ref="java" value="66.7"></entry>
+                <entry key-ref="python" value="66.7"></entry>
+            </map>
+        </property>
+    </bean>
+
+
+</beans>

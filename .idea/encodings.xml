@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AnotationDemo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringAopAnotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringAopDemo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringAop_AspectJ_Test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBeanLife" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringColletction" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringJdbc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringMybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringTransaction" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autoWiredDemo" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性，该属性为<mapper>元素指定了唯一的命名空间，
+通常会设置成“包名+SQL映射文件名”的形式-->
+<mapper namespace="com.gavin.Mapper.BookMapper">
+<!--    C:\Users\Gavin\IdeaProjects\com.gavin.Filter\IOCdemo\SpringMybatis\src\main\resources\BookMapper.xml-->
+<!--子元素<select>中的信息是用于执行查询操作的配置，
+其id属性是<select>元素在映射文件中的唯一标识；parameterType属性用于指定传入参数的类型，
+这里表示传递给执行SQL的是一个Integer类型的参数；resultType属性用于指定返回结果的类型， -->
+    <select id="selectBook"  parameterType="Integer" resultType="com.gavin.Pojo.Book">
+-- 在定义的查询SQL语句中，“#{}”用于表示一个占位符，
+-- 相当于“?”；而“#{id}”表示该占位符待接收参数的名称为id。
+        select * from bookstore where BookId = #{BookId} ;
+    </select>
+</mapper>

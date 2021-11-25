@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookDao" class="com.gavin.ioc.Dao.Book" >
+<!--        通过set装配-->
+<property name="bookKind" value="计算机网络"/>
+        <property name="bookName" value="java Web"/>
+        <property name="bookPrice" value="88.88"/>
+        <property name="set">
+
+            <set>
+               <value>第一版</value>
+               <value>第二版</value>
+               <value>第三版</value>
+               <value>第四版</value>
+            </set>
+        </property>
+    </bean>
+    <bean id="PersonDao" class="com.gavin.ioc.Dao.Person" scope="prototype">
+        <constructor-arg index="0" value="张三年"/>
+        <constructor-arg index="1" value="18"/>
+        <constructor-arg index="2" value="男"/>
+        <constructor-arg index="3" >
+              <list>
+                  <value>抽烟</value>
+                  <value>喝酒</value>
+                  <value>烫头</value>
+                  <value>以上都是假的</value>
+              </list>
+        </constructor-arg>
+    <property name="bookDao" ref="bookDao"/>
+
+</bean>
+
+</beans>

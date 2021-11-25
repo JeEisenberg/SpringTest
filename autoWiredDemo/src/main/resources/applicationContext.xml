@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+     <!--      <context:annotation-config/>
+               <bean id="UserDao"  class="com.gavin.AutoWired.Dao.UserDaoImpImp"/>
+               <bean id="UserService" class="com.gavin.AutoWired.Service.UserServiceImp"/>
+            <bean id="UserController" class="com.gavin.AutoWired.Controller.UserControllerImp"/>
+-->
+
+<!--  <context:component-scan base-package="com.gavin"/>-->
+<!--最原始的方式-->
+<!--    <bean id="UserDao"  class="com.gavin.AutoWired.Dao.UserDaoImp" >
+    <property name="userService"     ref="UserService"/>
+</bean>
+
+    <bean id="UserService" class="com.gavin.AutoWired.Service.UserServiceImp" >
+
+        <property name="userController"     ref="UserController"/>
+
+    </bean>
+
+    <bean id="UserController" class="com.gavin.AutoWired.Controller.UserControllerImp" />-->
+<!--   自动装配-->
+
+    <bean id="userDao"  class="com.gavin.AutoWired.Dao.UserDaoImp"  autowire="byName">
+
+    </bean>
+
+    <bean id="userService" class="com.gavin.AutoWired.Service.UserServiceImp" autowire="byName">
+
+    </bean>
+
+    <bean id="userController" class="com.gavin.AutoWired.Controller.UserControllerImp" />
+</beans>

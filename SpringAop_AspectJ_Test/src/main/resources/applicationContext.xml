@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="userDao" class="com.gavin.Dao.UserDaoImp"/>
+
+    <!--
+     <bean id="myAspect" class ="com.gavin.myAspect.myAspect"/>
+
+        <aop:config >
+            <aop:aspect id="aspect" ref="myAspect">
+                <aop:pointcut id="myPointCut" expression="execution(* com.gavin.Dao.*.*(..))"/>
+                <aop:before method="myBefore" pointcut-ref="myPointCut"/>
+                <aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" returning="joinPoint"/>
+                <aop:around method="myAround" pointcut-ref="myPointCut"/>
+                <aop:after-throwing method="myThrowing" pointcut-ref="myPointCut" throwing="e"/>
+                <aop:after method="myAfter" pointcut-ref="myPointCut" />
+            </aop:aspect>
+        </aop:config>-->
+
+    <context:component-scan base-package="com.gavin.myAspect"/>
+    <aop:aspectj-autoproxy/>
+
+</beans>
